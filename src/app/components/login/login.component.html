@@ -1,5 +1,5 @@
 <!-- <p>login works!</p> -->
-<div class="login">
+<!-- <div class="login">
     <div class="form">
         <h1>Login User</h1>
         <div>
@@ -23,4 +23,135 @@
             </div>
         </div>
     </div>
+</div> -->
+<!-- =================================== -->
+
+<div class="login">
+  <div class="container">
+    <div class="main-container">
+      <div class="container-left">
+        <h1>Welcom To Todify</h1>
+        <h5>Learn from wrold's Best Instructoors around the world</h5>
+        <img src="assets/login-img2.png" />
+        <h3>New Update Availbale</h3>
+      </div>
+
+      <div class="container-right">
+        <h1>Login To Your Account</h1>
+
+        <div class="success" *ngIf="success">
+                Logging User ...
+            </div>
+
+             <div class="error" *ngIf="error">
+                {{error}}
+            </div>
+
+        <div class="container-input">
+          
+          <div class="input-box">
+            <input type="email" placeholder="Email Address"  [(ngModel)]="email"/>
+            <a><i class="bx bxs-envelope"></i></a>
+          </div>
+          <div class="input-box">
+            <input type="password" placeholder="Password" [(ngModel)]="password" />
+            <a><i class="bx bxs-lock-alt"></i></a>
+          </div>
+        </div>
+
+        <div class="privacy-text">
+          <div class="text">
+            <input type="checkbox" />
+            <p>
+              I agree to the <span>term od services</span>and
+              <span>privacy policy</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="input-btn">
+          <button (click)="userLogin()">Sign In</button>
+        </div>
+<div class="another-option">
+    <h3>Or Sign In With</h3>
+
+    <div class="social-link">
+        <i class="bx bxl-google"></i>
+        <i class="bx bxl-facebook"></i>
+        <i class="bx bxl-twitter"></i>
+        <i class="bx bxl-github"></i>
+        <i class="bx bxl-instagram"></i>
+
+    </div>
+
+    <p>Don't have an account?<span>Sign Up</span> </p>
 </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- =============================================================== -->
+<!-- 
+<div class="login">
+  <div class="container">
+    <div class="main-container">
+      <div class="container-left">
+        <h1>Welcom To Todify</h1>
+        <h5>Learn from wrold's Best Instructoors around the world</h5>
+        <img src="assets/login-img2.png" />
+        <h3>New Update Availbale</h3>
+      </div>
+
+      <div class="container-right">
+        <h1>Create Account</h1>
+
+        <div class="container-input">
+          <div class="input-box">
+            <input type="text" placeholder="Full Name" />
+            <a><i class="bx bxs-user"></i></a>
+          </div>
+          <div class="input-box">
+            <input type="email" placeholder="Email Address" />
+            <a><i class="bx bxs-envelope"></i></a>
+          </div>
+          <div class="input-box">
+            <input type="password" placeholder="Password" />
+            <a><i class="bx bxs-lock-alt"></i></a>
+          </div>
+        </div>
+
+        <div class="privacy-text">
+          <div class="text">
+            <input type="checkbox" />
+            <p>
+              I agree to the <span>term od services</span>and
+              <span>privacy policy</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="input-btn">
+          <button>Sign Up</button>
+        </div>
+<div class="another-option">
+    <h3>Or Sign Up With</h3>
+
+    <div class="social-link">
+        <i class="bx bxl-google"></i>
+        <i class="bx bxl-facebook"></i>
+        <i class="bx bxl-twitter"></i>
+        <i class="bx bxl-github"></i>
+        <i class="bx bxl-instagram"></i>
+
+    </div>
+
+    <p>Already Have an accoun?<span>Sign In</span> </p>
+</div>
+
+
+      </div>
+    </div>
+  </div>
+</div> -->

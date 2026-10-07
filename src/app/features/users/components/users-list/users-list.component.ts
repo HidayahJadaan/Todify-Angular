@@ -32,7 +32,7 @@ detailsUser(user:User){
 
 }
 // ======================
-deleteUser(user:User, index:number){
+deleteUser(user:Todo, index:number){
   
   this.todos.splice(index,1);
   alert('Todo Deleted Successfully')

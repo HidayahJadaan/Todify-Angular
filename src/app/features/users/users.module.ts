@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule, DatePipe, NgClass } from '@angular/common';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersListComponent } from './components/users-list/users-list.component';
@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     UsersRoutingModule,
     SharedModule,
+    NgClass
     // FormsModule
     // DatePipe
   ]

@@ -1,57 +1,220 @@
-.actions{
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+/* =========================================
+   TODO PAGE
+========================================= */
 
-    button{
-        background-color: blueviolet;
-        color: white;
-        cursor: pointer;
-        border-radius: 5px;
-        padding: 5px;
+.todo-page {
+  min-height: 100vh;
 
-    }
-}
+  padding: 45px 55px;
 
-/* ==============================
-   TODIFY TODO CARD
-   Modern + Corner Shape
-   ============================== */
+  background:
+    linear-gradient(
+      135deg,
+      #fffaf7 0%,
+      #fff5ef 50%,
+      #fffdfb 100%
+    );
 
-div {
   font-family: "Poppins", sans-serif;
 }
 
-/* ==============================
-   MAIN CARD
-   ============================== */
 
-div:has(> h5) {
-  position: relative;
+/* =========================================
+   PAGE HEADER
+========================================= */
 
-  background: #ffffff;
+.page-header {
+  display: flex;
 
-  border-radius: 18px;
+  align-items: center;
+  justify-content: space-between;
 
-  padding: 22px 24px 20px 30px;
+  max-width: 1250px;
 
-  margin-bottom: 20px;
+  margin: 0 auto 40px;
+}
 
-  border: 1px solid #eee3da;
 
-  box-shadow: 0 5px 18px rgba(75, 48, 35, 0.07);
+.page-label {
+  display: inline-block;
 
-  overflow: hidden;
+  margin-bottom: 8px;
+
+  color: #ff7043;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+
+.page-header h1 {
+  margin: 0;
+
+  color: #3e2921;
+
+  font-size: 36px;
+  font-weight: 800;
+}
+
+
+.page-header p {
+  margin: 7px 0 0;
+
+  color: #927e75;
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   ADD TASK BUTTON
+========================================= */
+
+.add-task-btn {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 13px 21px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #ff7043,
+    #ff936d
+  );
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(255, 112, 67, 0.25);
 
   transition: all 0.3s ease;
 }
 
 
-/* ==============================
-   LEFT ACCENT LINE
-   ============================== */
+.add-task-btn span {
+  display: flex;
 
-div:has(> h5)::before {
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  font-size: 18px;
+}
+
+
+.add-task-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 25px rgba(255, 112, 67, 0.35);
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.success-load {
+  max-width: 1250px;
+
+  margin: 0 auto 25px;
+
+  padding: 15px 20px;
+
+  border-radius: 14px;
+
+  background: #fff0e8;
+
+  color: #e5673e;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+.loader-text {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+}
+
+
+/* =========================================
+   TODO GRID
+========================================= */
+
+.todo-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 22px;
+
+  max-width: 1250px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   TODO CARD
+========================================= */
+
+.todo-card {
+  position: relative;
+
+  min-height: 235px;
+
+  padding: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #f1e4dd;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 7px 20px rgba(70, 45, 30, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* Orange left line */
+
+.todo-card::before {
   content: "";
 
   position: absolute;
@@ -59,145 +222,70 @@ div:has(> h5)::before {
   left: 0;
   top: 0;
 
-  width: 6px;
+  width: 5px;
   height: 100%;
 
-  background: #ff7043;
-
-  border-radius: 18px 0 0 18px;
+  background: linear-gradient(
+    to bottom,
+    #ff7043,
+    #ffab8e
+  );
 }
 
 
-/* ==============================
-   DECORATIVE CORNER SHAPE
-   ============================== */
+/* Decorative corner */
 
-div:has(> h5)::after {
+.todo-card::after {
   content: "";
 
   position: absolute;
 
-  width: 115px;
-  height: 115px;
+  width: 145px;
+  height: 145px;
 
-  top: -65px;
-  right: -55px;
-
-  background: #ffe2d4;
+  top: -85px;
+  right: -75px;
 
   border-radius: 50%;
 
-  z-index: 0;
+  background: #fff0e8;
 
   transition: all 0.4s ease;
 }
 
 
-/* Smaller inner corner */
-div:has(> h5) {
-  background-image:
-    radial-gradient(
-      circle at 100% 0%,
-      #ffb99e 0,
-      #ffb99e 28px,
-      transparent 29px
-    );
+/* =========================================
+   CARD HOVER
+========================================= */
+
+.todo-card:hover {
+  transform: translateY(-7px);
+
+  border-color: #ffd1c0;
+
+  box-shadow:
+    0 18px 35px rgba(70, 45, 30, 0.12);
 }
 
 
-/* ==============================
-   HOVER
-   ============================== */
+.todo-card:hover::after {
+  width: 170px;
+  height: 170px;
 
-div:has(> h5):hover {
-  transform: translateY(-4px);
+  top: -95px;
+  right: -85px;
 
-  box-shadow: 0 12px 28px rgba(75, 48, 35, 0.12);
-
-  border-color: #ffd0bd;
-}
-
-div:has(> h5):hover::after {
-  width: 140px;
-  height: 140px;
-
-  top: -75px;
-  right: -65px;
-
-  background: #ffddd0;
+  background: #ffe5da;
 }
 
 
-/* ==============================
-   TITLE
-   ============================== */
+/* =========================================
+   CARD HEADER
+========================================= */
 
-div:has(> h5) h5 {
+.card-header {
   position: relative;
-  z-index: 2;
 
-  margin: 0;
-
-  color: #4f3022;
-
-  font-size: 19px;
-  font-weight: 700;
-
-  letter-spacing: -0.2px;
-}
-
-
-/* Check icon */
-div:has(> h5) h5::before {
-  content: "✓";
-
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 30px;
-  height: 30px;
-
-  margin-right: 10px;
-
-  border-radius: 9px;
-
-  background: #fff0e8;
-
-  color: #ff7043;
-
-  font-size: 15px;
-  font-weight: 700;
-
-  vertical-align: middle;
-}
-
-
-/* ==============================
-   DESCRIPTION
-   ============================== */
-
-div:has(> h5) > p {
-  position: relative;
-  z-index: 2;
-
-  margin: 10px 0 18px;
-
-  color: #90796c;
-
-  font-size: 14px;
-
-  line-height: 1.6;
-}
-
-
-/* ==============================
-   BOTTOM AREA
-   ============================== */
-
-div:has(> h5) > div {
-  position: relative;
   z-index: 2;
 
   display: flex;
@@ -208,72 +296,467 @@ div:has(> h5) > div {
 }
 
 
-/* ==============================
-   STATUS
-   ============================== */
+.check-icon {
+  display: flex;
 
-div:has(> h5) > div p {
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 11px;
+
+  background: #fff0e8;
+
+  color: #ff7043;
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+
+.task-label {
+  padding: 5px 9px;
+
+  border-radius: 7px;
+
+  background: #faf5f2;
+
+  color: #a18b81;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.card-content {
+  position: relative;
+
+  z-index: 2;
+
+  margin-top: 25px;
+}
+
+
+.card-content h3 {
+  margin: 0 0 10px;
+
+  color: #3e2921;
+
+  font-size: 19px;
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+
+.card-content p {
+  margin: 0;
+
+  color: #927e75;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+
+  display: -webkit-box;
+
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   CARD FOOTER
+========================================= */
+
+.card-footer {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 24px;
+  right: 24px;
+  bottom: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+/* =========================================
+   TODO STATUS
+========================================= */
+
+.todo-status {
   display: inline-flex;
 
   align-items: center;
 
-  margin: 0;
+  gap: 7px;
 
   padding: 7px 13px;
 
-  background: #fff1ea;
+  border-radius: 20px;
 
-  color: #ed6840;
-
-  border-radius: 8px;
-
-  font-size: 12px;
+  font-size: 11px;
 
   font-weight: 700;
 
   text-transform: capitalize;
+
+  transition: all 0.3s ease;
 }
 
 
-/* Status dot */
-div:has(> h5) > div p::before {
-  content: "";
+/* =========================================
+   STATUS DOT
+========================================= */
 
+.status-dot {
   width: 7px;
   height: 7px;
 
-  margin-right: 7px;
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   PENDING
+   🟡 Orange / Yellow
+========================================= */
+
+.status-pending {
+  background: #fff5d6;
+
+  color: #c98a00;
+}
+
+.status-pending .status-dot {
+  background: #f4b400;
+
+  box-shadow:
+    0 0 0 4px rgba(244, 180, 0, 0.12);
+}
+
+
+/* =========================================
+   IN PROGRESS
+   🔵 Blue
+========================================= */
+
+.status-progress {
+  background: #e9f2ff;
+
+  color: #3478d4;
+}
+
+.status-progress .status-dot {
+  background: #4285f4;
+
+  box-shadow:
+    0 0 0 4px rgba(66, 133, 244, 0.12);
+}
+
+
+/* =========================================
+   COMPLETED
+   🟢 Green
+========================================= */
+
+.status-completed {
+  background: #e7f8ef;
+
+  color: #24935a;
+}
+
+.status-completed .status-dot {
+  background: #2eb872;
+
+  box-shadow:
+    0 0 0 4px rgba(46, 184, 114, 0.12);
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
 
   border-radius: 50%;
 
   background: #ff7043;
+
+  box-shadow:
+    0 0 0 4px rgba(255, 112, 67, 0.1);
+}
+
+/* =========================================
+   CARD ACTIONS
+========================================= */
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 
-/* ==============================
-   RESPONSIVE
-   ============================== */
+/* =========================================
+   DETAILS ARROW
+========================================= */
 
-@media (max-width: 600px) {
+.arrow {
+  display: flex;
 
-  div:has(> h5) {
-    padding: 18px 18px 18px 24px;
-  }
+  align-items: center;
+  justify-content: center;
 
-  div:has(> h5) h5 {
-    font-size: 17px;
-  }
+  width: 32px;
+  height: 32px;
 
-  div:has(> h5) > p {
-    font-size: 13px;
-  }
+  border-radius: 50%;
 
-  div:has(> h5)::after {
-    width: 90px;
-    height: 90px;
+  background: #faf5f2;
 
-    top: -50px;
-    right: -45px;
-  }
+  color: #ff7043;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
 }
-// ===============================================
+
+.arrow:hover {
+  background: #ff7043;
+
+  color: white;
+
+  transform: translateX(3px);
+}
+
+
+/* =========================================
+   DELETE ICON
+========================================= */
+
+.delete-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+
+  background: #fff0f0;
+
+  color: #e05252;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.delete-icon:hover {
+  background: #e05252;
+
+  color: white;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 12px rgba(224, 82, 82, 0.25);
+}
+
+/* =========================================
+   ARROW
+========================================= */
+
+.arrow {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+
+  background: #faf5f2;
+
+  color: #ff7043;
+
+  font-size: 17px;
+
+  transition: all 0.3s ease;
+}
+
+
+.todo-card:hover .arrow {
+  background: #ff7043;
+
+  color: white;
+
+  transform: translateX(4px);
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-state {
+  max-width: 500px;
+
+  margin: 60px auto;
+
+  text-align: center;
+
+  padding: 45px 30px;
+
+  background: white;
+
+  border: 1px solid #f0e4dd;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 8px 25px rgba(70, 45, 30, 0.06);
+}
+
+
+.empty-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 60px;
+  height: 60px;
+
+  margin: 0 auto 18px;
+
+  border-radius: 18px;
+
+  background: #fff0e8;
+
+  color: #ff7043;
+
+  font-size: 25px;
+  font-weight: 800;
+}
+
+
+.empty-state h3 {
+  margin: 0 0 8px;
+
+  color: #3e2921;
+
+  font-size: 20px;
+}
+
+
+.empty-state p {
+  margin-bottom: 22px;
+
+  color: #927e75;
+
+  font-size: 14px;
+}
+
+
+.empty-btn {
+  padding: 11px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #ff7043;
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .todo-page {
+    padding: 35px 25px;
+  }
+
+  .todo-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+  .todo-page {
+    padding: 25px 15px;
+  }
+
+  .page-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+  .page-header h1 {
+    font-size: 30px;
+  }
+
+  .add-task-btn {
+    width: 100%;
+  }
+
+  .todo-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .todo-card {
+    min-height: 225px;
+  }
+
+}

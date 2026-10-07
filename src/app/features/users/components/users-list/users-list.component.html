@@ -44,20 +44,130 @@
     </tbody>
 </table> -->
 <!-- ============================================= -->
-<p>todo-card works!</p>
-<div>
-    
-    <div class="success-load" *ngIf="loading">
-        Loading Todos Data From Store...
-        <img src="./loader.gif" width="40px" height="40px" />
-    </div>
-    <div *ngFor="let todo of todos">
-        <h5>{{todo.title}}</h5>
-        <p>{{todo.description}}</p>
+<div class="todo-page">
+
+    <!-- Page Header -->
+    <div class="page-header">
+
         <div>
-            <p>{{todo.status}}</p>
+            <span class="page-label">TASK MANAGEMENT</span>
+            <h1>My Todos</h1>
+            <p>Organize your tasks and stay productive.</p>
         </div>
+
+        <button class="add-task-btn" routerLink="/users/add">
+            <span>+</span>
+            Add New Task
+        </button>
+
     </div>
+
+
+    <!-- Loading -->
+    <div class="success-load" *ngIf="loading">
+
+        <div class="loader-text">
+            <img src="./loader.gif" width="35" height="35" />
+
+            <span>Loading Todos Data From Store...</span>
+        </div>
+
+    </div>
+
+
+    <!-- Todo Cards -->
+    <div class="todo-grid">
+
+        <div class="todo-card" *ngFor="let todo of todos; let i =index">
+
+            <!-- Card Header -->
+            <div class="card-header">
+
+                <div class="check-icon">
+                    ✓
+                </div>
+
+                <span class="task-label">
+                    TASK
+                </span>
+
+            </div>
+
+
+            <!-- Todo Content -->
+            <div class="card-content">
+
+                <h3>
+                    {{ todo.title }}
+                </h3>
+
+                <p>
+                    {{ todo.description }}
+                </p>
+
+            </div>
+
+
+            <!-- Card Footer -->
+            
+            <div class="card-footer">
+
+    <div
+        class="todo-status"
+        [ngClass]="{
+            'status-pending': todo.status === 'pending',
+            'status-progress': todo.status === 'in-progress',
+            'status-completed': todo.status === 'completed'
+        }">
+
+        <span class="status-dot"></span>
+
+        {{ todo.status }}
+
+    </div>
+
+
+    <div class="card-actions">
+
+        <!-- Details -->
+        <span class="arrow" title="View Task">
+            →
+        </span>
+
+        <!-- Delete -->
+       <span
+  class="delete-icon"
+  (click)="deleteUser(todo, i)"
+  title="Delete Task">
+  <i class="bx bx-trash"></i>
+</span>
+
+    </div>
+
 </div>
-<!-- ============================================= -->
- 
+
+        </div>
+
+    </div>
+
+
+    <!-- Empty State -->
+    <div class="empty-state" *ngIf="!loading && todos?.length === 0">
+
+        <div class="empty-icon">
+            ✓
+        </div>
+
+        <h3>No Tasks Yet</h3>
+
+        <p>
+            You don't have any tasks at the moment.
+        </p>
+
+        <button class="empty-btn" routerLink="/users/add">
+            Create Your First Task
+        </button>
+
+    </div>
+
+</div>
