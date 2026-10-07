@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { getAllUsers } from '../../database/users';
 import { User } from '../../models/user.model';
+import { Todo } from '../../models/todo.model';
 
 @Component({
   selector: 'app-users-list',
@@ -10,15 +11,15 @@ import { User } from '../../models/user.model';
 })
 export class UsersListComponent implements OnInit{
 
-  users:User[]=[];
+  todos:Todo[]=[];
   loading:boolean= true;
 
 ngOnInit() {
   this.loading =true;
   getAllUsers()
-  .then((users:User[])=>{
+  .then((users:Todo[])=>{
     
-    this.users =users;
+    this.todos =users;
     this.loading =false;
   })
 }
@@ -33,8 +34,8 @@ detailsUser(user:User){
 // ======================
 deleteUser(user:User, index:number){
   
-  this.users.splice(index,1);
-  alert('User Deleted Successfully')
+  this.todos.splice(index,1);
+  alert('Todo Deleted Successfully')
 }
 
 

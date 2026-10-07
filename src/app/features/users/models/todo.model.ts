@@ -1,7 +1,7 @@
 import { ITodoType } from "./Itodo.model";
 
 export interface Todo {
-  id?: number;
+  id?: string;
   title: string;
   description: string;
   status: ITodoType;

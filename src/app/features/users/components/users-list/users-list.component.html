@@ -1,5 +1,5 @@
 <!-- <p>users-list works!</p> -->
-<div class="page-head">
+<!-- <div class="page-head">
     <h3>Todos List</h3>
     <button routerLink="/users/add">Add New Task</button>
 </div>
@@ -42,14 +42,21 @@
 
         </tr>
     </tbody>
-</table>
+</table> -->
 <!-- ============================================= -->
 <p>todo-card works!</p>
-<div *ngFor="let user of users">
-    <h5>todo.title</h5>
-    <p>todo.description</p>
-    <div>
-        <p>todo.status</p>
+<div>
+    
+    <div class="success-load" *ngIf="loading">
+        Loading Todos Data From Store...
+        <img src="./loader.gif" width="40px" height="40px" />
+    </div>
+    <div *ngFor="let todo of todos">
+        <h5>{{todo.title}}</h5>
+        <p>{{todo.description}}</p>
+        <div>
+            <p>{{todo.status}}</p>
+        </div>
     </div>
 </div>
 <!-- ============================================= -->
