@@ -1,0 +1,220 @@
+
+<div class="todo-page">
+
+    <!-- ========================================= -->
+    <!-- Page Header -->
+    <!-- ========================================= -->
+
+    <div class="page-head">
+
+        <div class="page-title">
+            <span class="title-icon">✓</span>
+
+            <div>
+                <h2>Create New Todo</h2>
+                <p>Add a new task to your list</p>
+            </div>
+        </div>
+
+        <a
+            routerLink="/users/list"
+            class="back-btn"
+        >
+            ← Todos List
+        </a>
+
+    </div>
+
+
+    <!-- ========================================= -->
+    <!-- Form Card -->
+    <!-- ========================================= -->
+
+    <div class="todo-form-card">
+
+        <!-- Card Header -->
+
+        <div class="form-header">
+
+            <div>
+                <h3>New Task</h3>
+                <p>Fill in the information below</p>
+            </div>
+
+            <div class="task-badge">
+                NEW
+            </div>
+
+        </div>
+
+
+        <!-- ===================================== -->
+        <!-- Messages -->
+        <!-- ===================================== -->
+
+        <div
+            class="message loading-message"
+            *ngIf="loading"
+        >
+            <span class="spinner"></span>
+
+            <span>Saving your todo...</span>
+        </div>
+
+
+        <div
+            class="message success-message"
+            *ngIf="success && !loading"
+        >
+            <span class="message-icon">✓</span>
+
+            <span>{{ success }}</span>
+        </div>
+
+
+        <div
+            class="message error-message"
+            *ngIf="errors.length > 0"
+        >
+
+            <div class="error-title">
+                Please fix the following:
+            </div>
+
+            <div
+                class="error-item"
+                *ngFor="let error of errors"
+            >
+                • {{ error }}
+            </div>
+
+        </div>
+
+
+        <!-- ===================================== -->
+        <!-- Form -->
+        <!-- ===================================== -->
+
+        <div class="form-body">
+
+
+            <!-- Title -->
+
+            <div class="form-group">
+
+                <label for="title">
+                    Task Title
+                    <span>*</span>
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">✓</span>
+
+                    <input
+                        id="title"
+                        type="text"
+                        name="title"
+                        [(ngModel)]="title"
+                        placeholder="e.g. Complete Angular project"
+                        autocomplete="off"
+                    />
+
+                </div>
+
+            </div>
+
+
+            <!-- Description -->
+
+            <div class="form-group">
+
+                <label for="description">
+                    Description
+                    <span>*</span>
+                </label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    [(ngModel)]="description"
+                    placeholder="Describe what needs to be done..."
+                    rows="5"
+                ></textarea>
+
+                <small>
+                    Add some details to help you remember this task.
+                </small>
+
+            </div>
+
+
+            <!-- Status -->
+
+            <div class="form-group">
+
+                <label for="status">
+                    Status
+                    <span>*</span>
+                </label>
+
+                <select
+    name="status"
+    [(ngModel)]="status">
+
+    <option value="pending">
+        Pending
+    </option>
+
+    <option value="in-progress">
+        In Progress
+    </option>
+
+    <option value="completed">
+        Completed
+    </option>
+
+</select>
+
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- Buttons -->
+            <!-- ================================= -->
+
+            <div class="form-actions">
+
+                <a
+                    routerLink="/users/list"
+                    class="cancel-btn"
+                >
+                    Cancel
+                </a>
+
+                <button
+                    type="button"
+                    class="save-btn"
+                    (click)="saveTodo()"
+                    [disabled]="loading"
+                >
+
+                    <span *ngIf="!loading">
+                        + Add Todo
+                    </span>
+
+                    <span *ngIf="loading">
+                        Saving...
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

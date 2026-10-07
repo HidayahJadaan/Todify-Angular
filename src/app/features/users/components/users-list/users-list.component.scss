@@ -1,0 +1,279 @@
+.actions{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    button{
+        background-color: blueviolet;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 5px;
+
+    }
+}
+
+/* ==============================
+   TODIFY TODO CARD
+   Modern + Corner Shape
+   ============================== */
+
+div {
+  font-family: "Poppins", sans-serif;
+}
+
+/* ==============================
+   MAIN CARD
+   ============================== */
+
+div:has(> h5) {
+  position: relative;
+
+  background: #ffffff;
+
+  border-radius: 18px;
+
+  padding: 22px 24px 20px 30px;
+
+  margin-bottom: 20px;
+
+  border: 1px solid #eee3da;
+
+  box-shadow: 0 5px 18px rgba(75, 48, 35, 0.07);
+
+  overflow: hidden;
+
+  transition: all 0.3s ease;
+}
+
+
+/* ==============================
+   LEFT ACCENT LINE
+   ============================== */
+
+div:has(> h5)::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 6px;
+  height: 100%;
+
+  background: #ff7043;
+
+  border-radius: 18px 0 0 18px;
+}
+
+
+/* ==============================
+   DECORATIVE CORNER SHAPE
+   ============================== */
+
+div:has(> h5)::after {
+  content: "";
+
+  position: absolute;
+
+  width: 115px;
+  height: 115px;
+
+  top: -65px;
+  right: -55px;
+
+  background: #ffe2d4;
+
+  border-radius: 50%;
+
+  z-index: 0;
+
+  transition: all 0.4s ease;
+}
+
+
+/* Smaller inner corner */
+div:has(> h5) {
+  background-image:
+    radial-gradient(
+      circle at 100% 0%,
+      #ffb99e 0,
+      #ffb99e 28px,
+      transparent 29px
+    );
+}
+
+
+/* ==============================
+   HOVER
+   ============================== */
+
+div:has(> h5):hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 12px 28px rgba(75, 48, 35, 0.12);
+
+  border-color: #ffd0bd;
+}
+
+div:has(> h5):hover::after {
+  width: 140px;
+  height: 140px;
+
+  top: -75px;
+  right: -65px;
+
+  background: #ffddd0;
+}
+
+
+/* ==============================
+   TITLE
+   ============================== */
+
+div:has(> h5) h5 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  color: #4f3022;
+
+  font-size: 19px;
+  font-weight: 700;
+
+  letter-spacing: -0.2px;
+}
+
+
+/* Check icon */
+div:has(> h5) h5::before {
+  content: "✓";
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  margin-right: 10px;
+
+  border-radius: 9px;
+
+  background: #fff0e8;
+
+  color: #ff7043;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  vertical-align: middle;
+}
+
+
+/* ==============================
+   DESCRIPTION
+   ============================== */
+
+div:has(> h5) > p {
+  position: relative;
+  z-index: 2;
+
+  margin: 10px 0 18px;
+
+  color: #90796c;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* ==============================
+   BOTTOM AREA
+   ============================== */
+
+div:has(> h5) > div {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+
+/* ==============================
+   STATUS
+   ============================== */
+
+div:has(> h5) > div p {
+  display: inline-flex;
+
+  align-items: center;
+
+  margin: 0;
+
+  padding: 7px 13px;
+
+  background: #fff1ea;
+
+  color: #ed6840;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-transform: capitalize;
+}
+
+
+/* Status dot */
+div:has(> h5) > div p::before {
+  content: "";
+
+  width: 7px;
+  height: 7px;
+
+  margin-right: 7px;
+
+  border-radius: 50%;
+
+  background: #ff7043;
+}
+
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 600px) {
+
+  div:has(> h5) {
+    padding: 18px 18px 18px 24px;
+  }
+
+  div:has(> h5) h5 {
+    font-size: 17px;
+  }
+
+  div:has(> h5) > p {
+    font-size: 13px;
+  }
+
+  div:has(> h5)::after {
+    width: 90px;
+    height: 90px;
+
+    top: -50px;
+    right: -45px;
+  }
+}
+// ===============================================

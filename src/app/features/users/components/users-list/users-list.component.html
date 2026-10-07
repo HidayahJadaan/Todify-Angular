@@ -1,0 +1,56 @@
+<!-- <p>users-list works!</p> -->
+<div class="page-head">
+    <h3>Todos List</h3>
+    <button routerLink="/users/add">Add New Task</button>
+</div>
+
+<div class="success-load" *ngIf="loading">
+    Loading Users Data From Store...
+    <img src="./loader.gif" width="40px" height="40px" />
+</div>
+<table border="1" width="100%" *ngIf="!loading">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Created_at</th>
+            <th>actions</th>
+        </tr>
+
+
+    </thead>
+
+
+    <tbody>
+        <tr *ngFor="let user of users; let i= index">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.created_at | date:'dd,MM,yyyy'}}</td>
+            <td>
+                <div class="actions">
+
+                    <button (click)="editUser(user)">Edit</button>
+                    <button (click)="detailsUser(user)">Details</button>
+                    <button (click)="deleteUser(user, i)">Delete</button>
+                </div>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+<!-- ============================================= -->
+<p>todo-card works!</p>
+<div *ngFor="let user of users">
+    <h5>todo.title</h5>
+    <p>todo.description</p>
+    <div>
+        <p>todo.status</p>
+    </div>
+</div>
+<!-- ============================================= -->
+ 
