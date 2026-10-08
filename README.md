@@ -6,7 +6,10 @@
 - Multiple Layouts
 
 ==> Module - Users
-    - Add User
-    - List of Users
-    - User Details
+    - Add Todo
+    - Edit Todo
+    - List of Todos
+    - Todo Details
     - Login
+
+
