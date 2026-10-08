@@ -5,7 +5,7 @@
 - fetch and send data by routes
 - Multiple Layouts
 
-==> Module - Users
+==> Module - Todos
     - Add Todo
     - Edit Todo
     - List of Todos
