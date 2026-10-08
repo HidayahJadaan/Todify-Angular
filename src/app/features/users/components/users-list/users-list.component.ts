@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getAllUsers } from '../../database/users';
+import { getAllTodos } from '../../database/users';
 import { User } from '../../models/user.model';
 import { Todo } from '../../models/todo.model';
 
@@ -16,10 +16,11 @@ export class UsersListComponent implements OnInit{
 
 ngOnInit() {
   this.loading =true;
-  getAllUsers()
+  getAllTodos()
   .then((users:Todo[])=>{
     
-    this.todos =users;
+    // this.todos =[...users];//copy from the main array
+    this.todos =users;//copy from the main array
     this.loading =false;
   })
 }

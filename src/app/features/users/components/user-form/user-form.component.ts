@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { addUser } from '../../database/users';
-import { User } from '../../models/user.model';
+import { addTodo } from '../../database/users';
+// import { User } from '../../models/user.model';
 import { ITodoType } from '../../models/Itodo.model';
 import { Todo } from '../../models/todo.model';
 
@@ -65,7 +65,7 @@ status: ITodoType = 'pending';
     // Save to database
     // =============================================
 
-    addUser(todo)
+    addTodo(todo)
       .then((user: Todo) => {
 
         // Stop loading

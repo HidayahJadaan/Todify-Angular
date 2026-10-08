@@ -1,8 +1,25 @@
-<p>user-details works!</p>
-<div class="details-page">
+<!-- <p>todo-details works!</p> -->
+<div class="success" *ngIf="loading">
+  <span class="spinner"></span>
+
+  <span>Getting your todo Details...</span>
+</div>
+<div class="details-page" *ngIf="!loading">
+  <!-- loading -->
+
+
+
+
+  <div class="error" *ngIf="error">
+    <span class="message-icon">✓</span>
+
+    <span>{{ error }}</span>
+  </div>
+
+
 
   <!-- Back -->
-  <button class="back-btn">
+  <button class="back-btn" routerLink="/users/list">
     ← Back to Todos
   </button>
 
@@ -21,14 +38,14 @@
     <!-- Status -->
     <div class="todo-status">
       <span></span>
-      todo.status 
+      {{todo.status}}
     </div>
 
     <!-- Title -->
     <div class="todo-title">
       <div class="check-icon">✓</div>
 
-      <h2> todo.title </h2>
+      <h2> {{todo.title}} </h2>
     </div>
 
     <!-- Description -->
@@ -36,7 +53,7 @@
       <h6>Description</h6>
 
       <p>
-        todo.description 
+        {{todo.description}}
       </p>
     </div>
 
@@ -45,12 +62,12 @@
 
       <div class="info-box">
         <span class="info-label">Status</span>
-        <strong> todo.status </strong>
+        <strong> {{todo.status}} </strong>
       </div>
 
       <div class="info-box">
         <span class="info-label">Created</span>
-        <strong>October 7, 2026</strong>
+        <strong>{{todo.created_at | date}}</strong>
       </div>
 
     </div>

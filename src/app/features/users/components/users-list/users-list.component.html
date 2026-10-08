@@ -109,42 +109,40 @@
 
 
             <!-- Card Footer -->
-            
+
             <div class="card-footer">
 
-    <div
-        class="todo-status"
-        [ngClass]="{
+                <div class="todo-status" [ngClass]="{
             'status-pending': todo.status === 'pending',
             'status-progress': todo.status === 'in-progress',
             'status-completed': todo.status === 'completed'
         }">
 
-        <span class="status-dot"></span>
+                    <span class="status-dot"></span>
 
-        {{ todo.status }}
+                    {{ todo.status }}
 
-    </div>
+                </div>
 
 
-    <div class="card-actions">
+                <div class="card-actions">
 
-        <!-- Details -->
-        <span class="arrow" title="View Task">
-            →
-        </span>
+                    <!-- Details -->
+                    <span class="arrow" 
+                    title="View Task"
+                    routerLink="/users/details/{{todo.id}}"
+                    >
+                        →
+                    </span>
 
-        <!-- Delete -->
-       <span
-  class="delete-icon"
-  (click)="deleteUser(todo, i)"
-  title="Delete Task">
-  <i class="bx bx-trash"></i>
-</span>
+                    <!-- Delete -->
+                    <span class="delete-icon" (click)="deleteUser(todo, i)" title="Delete Task">
+                        <i class="bx bx-trash"></i>
+                    </span>
 
-    </div>
+                </div>
 
-</div>
+            </div>
 
         </div>
 
