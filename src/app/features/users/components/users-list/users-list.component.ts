@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { getAllTodos } from '../../database/users';
-import { User } from '../../models/user.model';
 import { Todo } from '../../models/todo.model';
+import { Router } from '@angular/router';
+import { ITodoType } from '../../models/Itodo.model';
 
 @Component({
   selector: 'app-users-list',
@@ -9,36 +10,96 @@ import { Todo } from '../../models/todo.model';
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.scss'
 })
-export class UsersListComponent implements OnInit{
+export class UsersListComponent implements OnInit {
 
-  todos:Todo[]=[];
-  loading:boolean= true;
+  constructor(private _router: Router) {}
 
-ngOnInit() {
-  this.loading =true;
-  getAllTodos()
-  .then((users:Todo[])=>{
-    
-    // this.todos =[...users];//copy from the main array
-    this.todos =users;//copy from the main array
-    this.loading =false;
-  })
-}
-// =====================
-editUser(user:User){
+  todos: Todo[] = [];
 
-}
-// ======================
-detailsUser(user:User){
+  filteredTodos: Todo[] = [];
 
-}
-// ======================
-deleteUser(user:Todo, index:number){
-  
-  this.todos.splice(index,1);
-  alert('Todo Deleted Successfully')
-}
+  loading: boolean = true;
 
+  // IMPORTANT:
+  // '' means All Tasks
+  status: ITodoType | '' = '';
 
+  ngOnInit() {
+
+    this.loading = true;
+
+    getAllTodos()
+      .then((todos: Todo[]) => {
+
+        this.todos = todos;
+
+        // Show ALL todos initially
+        this.filteredTodos = [...this.todos];
+
+        this.loading = false;
+
+      });
+
+  }
+
+  // =========================
+  // FILTER
+  // =========================
+
+  filterTodos() {
+
+    console.log('Selected status:', this.status);
+
+    // ALL TASKS
+    if (this.status === '') {
+
+      this.filteredTodos = [...this.todos];
+
+    } else {
+
+      // FILTER BY STATUS
+      this.filteredTodos = this.todos.filter(
+        (todo: Todo) => todo.status === this.status
+      );
+
+    }
+
+    console.log('Filtered todos:', this.filteredTodos);
+  }
+
+  // =========================
+  // EDIT
+  // =========================
+
+  editUser(todo: Todo) {
+
+    this._router.navigate([
+      'users',
+      'edit',
+      todo.id
+    ]);
+
+  }
+
+  // =========================
+  // DELETE
+  // =========================
+
+  deleteUser(todo: Todo, index: number) {
+
+    // Remove from original array
+    const todoIndex = this.todos.findIndex(
+      t => t.id === todo.id
+    );
+
+    if (todoIndex !== -1) {
+      this.todos.splice(todoIndex, 1);
+    }
+
+    // Update displayed list
+    this.filterTodos();
+
+    alert('Todo Deleted Successfully');
+  }
 
 }

@@ -6,5 +6,5 @@ export interface Todo {
   description: string;
   status: ITodoType;
   created_at?: string;
-  updated_at?: string;
+  updated_at?: Date | string;
 }

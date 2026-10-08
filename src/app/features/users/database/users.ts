@@ -126,10 +126,25 @@ export const getTodoById = (id: string): Promise<Todo> => {
       if (todo) {
         resolve(todo);
       } else {
-        reject("Todo Not Exists!!");
+        reject('Todo Not Exists!!');
       }
     }, 3000);
   });
 };
 
+// ========================================
+export const editTodo = (updatedTodo: Todo): Promise<Todo> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let todoId = todos.findIndex((todo: Todo) => todo.id === updatedTodo.id);
+      if (todoId != -1) {
+        let todo = todos[todoId]= { ...updatedTodo };
+        todo.updated_at = new Date();
+        resolve(todo);
+      } else {
+        reject('Todo Not Exists!!');
+      }
+    }, 3000);
+  });
+};
 // ========================================

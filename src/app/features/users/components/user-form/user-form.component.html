@@ -1,4 +1,11 @@
+<div
+            class="success"
+            *ngIf="isEdit"
+        >
+            <!-- <span class="spinner"></span> -->
 
+            <span>getting your todo...</span>
+        </div>
 <div class="todo-page">
 
     <!-- ========================================= -->
@@ -11,8 +18,8 @@
             <span class="title-icon">✓</span>
 
             <div>
-                <h2>Create New Todo</h2>
-                <p>Add a new task to your list</p>
+                <h2>{{id ? 'Edit your':'Create New'}} Todo</h2>
+                <p>{{id ? 'update your task':'Add a new task to your list'}}</p>
             </div>
         </div>
 
@@ -37,12 +44,12 @@
         <div class="form-header">
 
             <div>
-                <h3>New Task</h3>
-                <p>Fill in the information below</p>
+                <h3>{{id? '':'New Task'}}</h3>
+                <p>{{id ? 'update your todo details':'Fill in the information below'}}</p>
             </div>
 
             <div class="task-badge">
-                NEW
+                {{id ? 'Update':'NEW'}}
             </div>
 
         </div>
@@ -60,6 +67,7 @@
 
             <span>Saving your todo...</span>
         </div>
+        
 
 
         <div
@@ -201,7 +209,7 @@
                 >
 
                     <span *ngIf="!loading">
-                        + Add Todo
+                       {{id? 'Save Changes':' + Add Todo'}}
                     </span>
 
                     <span *ngIf="loading">

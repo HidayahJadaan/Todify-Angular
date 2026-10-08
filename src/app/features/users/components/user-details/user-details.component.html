@@ -4,7 +4,7 @@
 
   <span>Getting your todo Details...</span>
 </div>
-<div class="details-page" *ngIf="!loading">
+<div class="details-page" *ngIf="todo && !loading">
   <!-- loading -->
 
 
@@ -73,7 +73,7 @@
     </div>
 
     <!-- Actions -->
-    <div class="actions">
+    <!-- <div class="actions">
 
       <button class="edit-btn">
         ✎ Edit Todo
@@ -83,7 +83,7 @@
         🗑 Delete
       </button>
 
-    </div>
+    </div> -->
 
   </div>
 

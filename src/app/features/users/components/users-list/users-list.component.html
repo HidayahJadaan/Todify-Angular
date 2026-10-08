@@ -63,6 +63,44 @@
     </div>
 
 
+<div class="filter-section">
+
+    <div class="filter-label">
+        <i class="bx bx-filter-alt"></i>
+        <span>Filter by Status</span>
+    </div>
+
+    <div class="select-wrapper">
+
+        <select
+            name="status"
+            [(ngModel)]="status"
+            (ngModelChange)="filterTodos()">
+
+            <option value="">All Tasks</option>
+
+            <option value="pending">
+                Pending
+            </option>
+
+            <option value="in-progress">
+                In Progress
+            </option>
+
+            <option value="completed">
+                Completed
+            </option>
+
+        </select>
+
+        <i class="bx bx-chevron-down select-icon"></i>
+
+    </div>
+
+</div>
+
+
+
     <!-- Loading -->
     <div class="success-load" *ngIf="loading">
 
@@ -78,7 +116,7 @@
     <!-- Todo Cards -->
     <div class="todo-grid">
 
-        <div class="todo-card" *ngFor="let todo of todos; let i =index">
+        <div class="todo-card" *ngFor="let todo of filteredTodos; let i =index">
 
             <!-- Card Header -->
             <div class="card-header">
@@ -138,6 +176,10 @@
                     <!-- Delete -->
                     <span class="delete-icon" (click)="deleteUser(todo, i)" title="Delete Task">
                         <i class="bx bx-trash"></i>
+                    </span>
+                    <!-- Edit -->
+                    <span class="delete-icon" (click)="editUser(todo)" title="Edit Task">
+                        <i class="bx bx-edit"></i>
                     </span>
 
                 </div>
